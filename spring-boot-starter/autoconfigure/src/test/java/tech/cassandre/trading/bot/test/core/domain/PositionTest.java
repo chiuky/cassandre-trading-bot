@@ -29,6 +29,7 @@ import tech.cassandre.trading.bot.test.util.strategies.TestableCassandreStrategy
 import tech.cassandre.trading.bot.util.exception.PositionException;
 
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
 import java.util.Iterator;
 import java.util.Optional;
@@ -393,8 +394,8 @@ public class PositionTest extends BaseTest {
         assertNull(p.getClosingOrder());
         assertNull(p.getLowestGainPrice());
         assertNull(p.getHighestGainPrice());
-        ZonedDateTime createdOn = p.getCreatedOn();
-        ZonedDateTime updatedON = p.getUpdatedOn();
+        OffsetDateTime createdOn = p.getCreatedOn();
+        OffsetDateTime updatedON = p.getUpdatedOn();
         assertNotNull(createdOn);
         assertNotNull(updatedON);
 

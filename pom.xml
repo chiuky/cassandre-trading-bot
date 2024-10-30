@@ -55,7 +55,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.18</version>
+		<version>3.3.5</version>
 		<relativePath/>
 	</parent>
 	<!-- =========================================================================================================== -->
@@ -73,7 +73,7 @@
 		<!-- Libraries releases -->
 
 		<!-- Core -->
-		<spring.version>2.7.18</spring.version>
+		<spring.version>3.3.5</spring.version>
 		<reactor.version>Dysprosium-SR25</reactor.version>
 		<xchange.version>5.0.13</xchange.version>
 		<bucket4j.version>8.0.1</bucket4j.version>
@@ -168,7 +168,7 @@
 				</configuration>
 			</plugin>
 			<!-- GPG signing -->
-			<plugin>
+<!--			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
 				<version>3.1.0</version>
@@ -180,15 +180,15 @@
 							<goal>sign</goal>
 						</goals>
 						<configuration>
-							<!-- Prevent `gpg` from using pinentry programs -->
+							&lt;!&ndash; Prevent `gpg` from using pinentry programs &ndash;&gt;
 							<gpgArguments>
-								<arg>--pinentry-mode</arg>
+								<arg>&#45;&#45;pinentry-mode</arg>
 								<arg>loopback</arg>
 							</gpgArguments>
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin>-->
 		</plugins>
 	</build>
 	<!-- =========================================================================================================== -->

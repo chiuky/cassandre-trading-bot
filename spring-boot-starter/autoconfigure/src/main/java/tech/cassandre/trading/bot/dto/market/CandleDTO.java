@@ -10,7 +10,7 @@ import tech.cassandre.trading.bot.util.java.EqualsBuilder;
 import tech.cassandre.trading.bot.util.test.ExcludeFromCoverageGeneratedReport;
 
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -45,7 +45,7 @@ public class CandleDTO {
     BigDecimal volume;
 
     /** Bucket start time. */
-    ZonedDateTime timestamp;
+    OffsetDateTime timestamp;
 
     /**
      * Returns base currency.
@@ -70,8 +70,8 @@ public class CandleDTO {
      *
      * @return timestamp
      */
-    public ZonedDateTime getTimestamp() {
-        return Objects.requireNonNullElseGet(timestamp, ZonedDateTime::now);
+    public OffsetDateTime getTimestamp() {
+        return Objects.requireNonNullElseGet(timestamp, OffsetDateTime::now);
     }
 
     @Override

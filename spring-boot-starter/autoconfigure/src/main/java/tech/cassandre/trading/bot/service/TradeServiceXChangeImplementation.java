@@ -23,7 +23,7 @@ import tech.cassandre.trading.bot.util.xchange.CancelOrderParams;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
+import java.time.OffsetDateTime;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -157,7 +157,7 @@ public class TradeServiceXChangeImplementation extends BaseService implements Tr
                             .currency(currencyPair.getQuoteCurrency())
                             .build())
                     .status(PENDING_NEW)
-                    .timestamp(ZonedDateTime.now())
+                    .timestamp(OffsetDateTime.now())
                     .build();
 
             // We save the order.
@@ -231,7 +231,7 @@ public class TradeServiceXChangeImplementation extends BaseService implements Tr
                             .currency(currencyPair.getQuoteCurrency())
                             .build())
                     .status(PENDING_NEW)
-                    .timestamp(ZonedDateTime.now())
+                    .timestamp(OffsetDateTime.now())
                     .build();
 
             // We save the order.

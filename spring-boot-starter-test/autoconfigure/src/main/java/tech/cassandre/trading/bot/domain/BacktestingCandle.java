@@ -8,12 +8,12 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.hibernate.Hibernate;
 import tech.cassandre.trading.bot.dto.util.CurrencyPairDTO;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 import static tech.cassandre.trading.bot.configuration.DatabaseAutoConfiguration.PRECISION;
@@ -73,7 +73,7 @@ public class BacktestingCandle {
 
     /** Bucket start time. */
     @Column(name = "TIMESTAMP")
-    private ZonedDateTime timestamp;
+    private OffsetDateTime timestamp;
 
     /**
      * Returns currency pair DTO.

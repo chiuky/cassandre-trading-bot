@@ -9,6 +9,10 @@ import tech.cassandre.trading.bot.dto.trade.OrderDTO;
 import tech.cassandre.trading.bot.dto.util.CurrencyAmountDTO;
 import tech.cassandre.trading.bot.dto.util.CurrencyPairDTO;
 
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+import java.util.Date;
+
 import static org.mapstruct.NullValuePropertyMappingStrategy.IGNORE;
 
 /**
@@ -31,6 +35,7 @@ public interface OrderMapper {
     @Mapping(target = "strategy", ignore = true)
     @Mapping(target = "trades", ignore = true)
     @Mapping(target = "trade", ignore = true)
+    @Mapping(source = "timestamp", target = "timestamp", qualifiedByName = "mapDateToOffsetDateTime")
     OrderDTO mapToOrderDTO(LimitOrder source);
 
     @Named("mapLimitOrderToOrderDTOAmount")

@@ -2,14 +2,20 @@ package tech.cassandre.trading.bot.util.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingConstants;
+import org.mapstruct.Named;
 import tech.cassandre.trading.bot.domain.BacktestingCandle;
 import tech.cassandre.trading.bot.domain.ImportedCandle;
 import tech.cassandre.trading.bot.dto.market.TickerDTO;
 
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+import java.util.Date;
+
 /**
  * Backtesting candle mapper.
  */
-@Mapper(uses = CurrencyMapper.class)
+@Mapper(uses = CurrencyMapper.class, componentModel = MappingConstants.ComponentModel.JAKARTA)
 public interface BacktestingTickerMapper {
 
     // =================================================================================================================

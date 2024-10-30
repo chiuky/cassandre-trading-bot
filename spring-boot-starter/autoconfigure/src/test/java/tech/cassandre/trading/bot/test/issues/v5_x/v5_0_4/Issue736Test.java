@@ -14,6 +14,7 @@ import tech.cassandre.trading.bot.test.util.strategies.TestableCassandreStrategy
 
 import java.math.BigDecimal;
 import java.time.Month;
+import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
 import java.util.List;
 
@@ -175,27 +176,27 @@ public class Issue736Test {
         List<TickerDTO> allTickers = strategy.getImportedTickers();
         assertEquals(5, allTickers.size());
 
-        ZonedDateTime ticker1Date = allTickers.get(0).getTimestamp();
+        OffsetDateTime ticker1Date = allTickers.get(0).getTimestamp();
         assertEquals(18, ticker1Date.getDayOfMonth());
         assertEquals(Month.OCTOBER, ticker1Date.getMonth());
         assertEquals(2017, ticker1Date.getYear());
 
-        ZonedDateTime ticker2Date = allTickers.get(1).getTimestamp();
+        OffsetDateTime ticker2Date = allTickers.get(1).getTimestamp();
         assertEquals(19, ticker2Date.getDayOfMonth());
         assertEquals(Month.OCTOBER, ticker2Date.getMonth());
         assertEquals(2017, ticker2Date.getYear());
 
-        ZonedDateTime ticker3Date = allTickers.get(2).getTimestamp();
+        OffsetDateTime ticker3Date = allTickers.get(2).getTimestamp();
         assertEquals(21, ticker3Date.getDayOfMonth());
         assertEquals(Month.OCTOBER, ticker3Date.getMonth());
         assertEquals(2017, ticker3Date.getYear());
 
-        ZonedDateTime ticker4Date = allTickers.get(3).getTimestamp();
+        OffsetDateTime ticker4Date = allTickers.get(3).getTimestamp();
         assertEquals(22, ticker4Date.getDayOfMonth());
         assertEquals(Month.OCTOBER, ticker4Date.getMonth());
         assertEquals(2017, ticker4Date.getYear());
 
-        ZonedDateTime ticker5Date = allTickers.get(4).getTimestamp();
+        OffsetDateTime ticker5Date = allTickers.get(4).getTimestamp();
         assertEquals(23, ticker5Date.getDayOfMonth());
         assertEquals(Month.OCTOBER, ticker5Date.getMonth());
         assertEquals(2017, ticker5Date.getYear());

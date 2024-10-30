@@ -4,8 +4,8 @@ import com.opencsv.bean.AbstractBeanField;
 import lombok.NonNull;
 import tech.cassandre.trading.bot.domain.ImportedTicker;
 
+import java.time.OffsetDateTime;
 import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.Date;
 
 /**
@@ -18,7 +18,7 @@ public class EpochToZonedDateTime extends AbstractBeanField<ImportedTicker, Impo
 
     @Override
     protected final Object convert(@NonNull final String value) {
-        return ZonedDateTime.ofInstant(new Date(Long.parseLong(value.trim()) * MILLISECONDS).toInstant(), ZoneId.systemDefault());
+        return OffsetDateTime.ofInstant(new Date(Long.parseLong(value.trim()) * MILLISECONDS).toInstant(), ZoneId.systemDefault());
     }
 
 }

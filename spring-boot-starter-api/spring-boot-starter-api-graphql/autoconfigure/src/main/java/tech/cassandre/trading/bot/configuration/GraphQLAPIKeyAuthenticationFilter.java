@@ -2,7 +2,7 @@ package tech.cassandre.trading.bot.configuration;
 
 import org.springframework.security.web.authentication.preauth.AbstractPreAuthenticatedProcessingFilter;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * GraphQL API authentication filter.

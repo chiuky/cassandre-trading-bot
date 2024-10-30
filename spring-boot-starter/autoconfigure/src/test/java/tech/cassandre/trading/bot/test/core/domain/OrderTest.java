@@ -21,6 +21,7 @@ import tech.cassandre.trading.bot.test.util.junit.configuration.Property;
 import tech.cassandre.trading.bot.test.util.strategies.TestableCassandreStrategy;
 
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
 import java.util.Iterator;
 import java.util.Optional;
@@ -190,7 +191,7 @@ public class OrderTest extends BaseTest {
         assertEquals(ETH_BTC.getBaseCurrency().toString(), orderInDatabase.get().getCumulativeAmount().getCurrency());
         assertEquals("MY_REF_3", orderInDatabase.get().getUserReference());
         assertTrue(createZonedDateTime("01-01-2020").isEqual(orderInDatabase.get().getTimestamp()));
-        ZonedDateTime createdOn = orderInDatabase.get().getCreatedOn();
+        OffsetDateTime createdOn = orderInDatabase.get().getCreatedOn();
         assertNotNull(createdOn);
         assertNull(orderInDatabase.get().getUpdatedOn());
 
@@ -237,7 +238,7 @@ public class OrderTest extends BaseTest {
                 .build());
         await().untilAsserted(() -> assertNotNull(getOrder("BACKUP_ORDER_03").getUpdatedOn()));
         assertEquals(createdOn, getOrder("BACKUP_ORDER_03").getCreatedOn());
-        ZonedDateTime updatedOn = orderInDatabase.get().getCreatedOn();
+        OffsetDateTime updatedOn = orderInDatabase.get().getCreatedOn();
 
         tradeFlux.emitValue(TradeDTO.builder()
                 .tradeId("BACKUP_TRADE_11")

@@ -12,21 +12,22 @@ import tech.cassandre.trading.bot.util.java.EqualsBuilder;
 import tech.cassandre.trading.bot.util.jpa.CurrencyAmount;
 import tech.cassandre.trading.bot.util.test.ExcludeFromCoverageGeneratedReport;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import java.time.ZonedDateTime;
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.AttributeOverrides;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
-import static javax.persistence.EnumType.STRING;
-import static javax.persistence.GenerationType.IDENTITY;
+import java.time.OffsetDateTime;
+
+import static jakarta.persistence.EnumType.STRING;
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 /**
  * Trade (map "TRADES" table).
@@ -92,8 +93,8 @@ public class Trade extends BaseDomain {
     private String userReference;
 
     /** The timestamp of the trade. */
-    @Column(name = "TIMESTAMP")
-    private ZonedDateTime timestamp;
+    @Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP WITH TIME ZONE")
+    private OffsetDateTime timestamp;
 
     @Override
     @ExcludeFromCoverageGeneratedReport

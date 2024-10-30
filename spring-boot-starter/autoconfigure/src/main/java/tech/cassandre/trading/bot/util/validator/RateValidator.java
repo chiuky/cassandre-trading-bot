@@ -2,8 +2,8 @@ package tech.cassandre.trading.bot.util.validator;
 
 import org.apache.commons.lang3.math.NumberUtils;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 import java.time.format.DateTimeParseException;
 
 /**

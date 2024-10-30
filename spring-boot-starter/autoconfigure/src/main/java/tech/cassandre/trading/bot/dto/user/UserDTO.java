@@ -9,7 +9,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import tech.cassandre.trading.bot.util.java.EqualsBuilder;
 import tech.cassandre.trading.bot.util.test.ExcludeFromCoverageGeneratedReport;
 
-import java.time.ZonedDateTime;
+import java.time.OffsetDateTime;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -34,7 +34,7 @@ public class UserDTO {
     Map<String, AccountDTO> accounts;
 
     /** Information timestamp. */
-    ZonedDateTime timestamp;
+    OffsetDateTime timestamp;
 
     /**
      * Find an account by its id.
@@ -54,8 +54,8 @@ public class UserDTO {
      *
      * @return timestamp
      */
-    public ZonedDateTime getTimestamp() {
-        return Objects.requireNonNullElseGet(timestamp, ZonedDateTime::now);
+    public OffsetDateTime getTimestamp() {
+        return Objects.requireNonNullElseGet(timestamp, OffsetDateTime::now);
     }
 
     @Override

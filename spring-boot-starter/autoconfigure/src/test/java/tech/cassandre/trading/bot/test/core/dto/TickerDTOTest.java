@@ -6,7 +6,7 @@ import tech.cassandre.trading.bot.dto.market.TickerDTO;
 import tech.cassandre.trading.bot.test.util.junit.BaseTest;
 
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
+import java.time.OffsetDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -18,8 +18,8 @@ public class TickerDTOTest extends BaseTest {
 	@DisplayName("Check equals()")
 	public void checkEqualToForTickers() {
 		// Dates.
-		ZonedDateTime date1 = createZonedDateTime("23-09-2017");
-		ZonedDateTime date2 = createZonedDateTime("02-10-2018");
+		OffsetDateTime date1 = createZonedDateTime("23-09-2017");
+		OffsetDateTime date2 = createZonedDateTime("02-10-2018");
 
 		// Rules: Ticker equality is based on currency pair and date only.
 

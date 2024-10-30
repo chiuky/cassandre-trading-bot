@@ -18,7 +18,9 @@ import tech.cassandre.trading.bot.service.TradeService;
 import tech.cassandre.trading.bot.test.util.junit.BaseTest;
 
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.util.LinkedHashSet;
 import java.util.Optional;
@@ -104,7 +106,7 @@ public class Issue427TestMock extends BaseTest {
                 .status(NEW)
                 .cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
                 .userReference("MY_REF_1")
-                .timestamp(ZonedDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneId.of("UTC")))
+                .timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
                 .build());
         orders.add(OrderDTO.builder()
                 .orderId("ORDER_000002")
@@ -117,7 +119,7 @@ public class Issue427TestMock extends BaseTest {
                 .status(NEW)
                 .cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
                 .userReference("MY_REF_1")
-                .timestamp(ZonedDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneId.of("UTC")))
+                .timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
                 .build());
         given(service.getOrders()).willReturn(orders);
 

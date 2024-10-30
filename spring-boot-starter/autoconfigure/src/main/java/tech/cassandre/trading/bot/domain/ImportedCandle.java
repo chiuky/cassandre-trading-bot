@@ -12,12 +12,12 @@ import tech.cassandre.trading.bot.dto.util.CurrencyPairDTO;
 import tech.cassandre.trading.bot.util.csv.EpochToZonedDateTime;
 import tech.cassandre.trading.bot.util.test.ExcludeFromCoverageGeneratedReport;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 import static tech.cassandre.trading.bot.configuration.DatabaseAutoConfiguration.PRECISION;
@@ -72,8 +72,8 @@ public class ImportedCandle {
 
     /** Bucket start time. */
     @CsvCustomBindByName(column = "TIMESTAMP", converter = EpochToZonedDateTime.class)
-    @Column(name = "TIMESTAMP")
-    private ZonedDateTime timestamp;
+    @Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP WITH TIME ZONE")
+    private OffsetDateTime timestamp;
 
     /**
      * Returns currency pair DTO.

@@ -22,6 +22,7 @@ import tech.cassandre.trading.bot.test.util.junit.configuration.Property;
 import tech.cassandre.trading.bot.test.util.strategies.TestableCassandreStrategy;
 
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
 import java.util.Optional;
 
@@ -202,7 +203,7 @@ public class TradeTest extends BaseTest {
         assertTrue(createZonedDateTime("01-09-2020").isEqual(tradeInDatabase.get().getTimestamp()));
 
         // Tests for created on and updated on fields.
-        ZonedDateTime createdOn = tradeInDatabase.get().getCreatedOn();
+        OffsetDateTime createdOn = tradeInDatabase.get().getCreatedOn();
         assertNotNull(createdOn);
         assertNull(tradeInDatabase.get().getUpdatedOn());
 
@@ -244,7 +245,7 @@ public class TradeTest extends BaseTest {
         assertTrue(trade11.isPresent());
         assertNotNull(trade11.get().getUpdatedOn());
         assertEquals(createdOn, trade11.get().getCreatedOn());
-        ZonedDateTime updatedOn = tradeInDatabase.get().getCreatedOn();
+        OffsetDateTime updatedOn = tradeInDatabase.get().getCreatedOn();
 
         // =============================================================================================================
         // Updating the order - second time.

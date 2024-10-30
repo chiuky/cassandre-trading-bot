@@ -10,9 +10,7 @@ import tech.cassandre.trading.bot.dto.util.CurrencyPairDTO;
 import tech.cassandre.trading.bot.util.base.Base;
 
 import java.math.BigDecimal;
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Optional;
@@ -93,7 +91,7 @@ public class BaseTest extends Base {
      *
      * @return random date
      */
-    public static ZonedDateTime getRandomDate() {
+    public static OffsetDateTime getRandomDate() {
         long aDay = TimeUnit.DAYS.toMillis(1);
         long now = new Date().getTime();
         Date hundredYearsAgo = new Date(now - aDay * 365 * 100);
@@ -103,7 +101,7 @@ public class BaseTest extends Base {
         long randomMillisSinceEpoch = ThreadLocalRandom
                 .current()
                 .nextLong(startMillis, endMillis);
-        return ZonedDateTime.ofInstant(Instant.ofEpochSecond(randomMillisSinceEpoch), ZoneId.systemDefault());
+        return OffsetDateTime.ofInstant(Instant.ofEpochSecond(randomMillisSinceEpoch), ZoneId.systemDefault());
     }
 
     /**
@@ -112,8 +110,9 @@ public class BaseTest extends Base {
      * @param day day
      * @return date
      */
-    protected static ZonedDateTime createZonedDateTime(final int day) {
-        return ZonedDateTime.of(2020, 1, day, 0, 0, 0, 0, ZoneId.systemDefault());
+    protected static OffsetDateTime createZonedDateTime(final int day) {
+        return OffsetDateTime.of(2020, 1, day, 0, 0, 0, 0,
+                ZoneId.systemDefault().getRules().getOffset(Instant.now()));
     }
 
     /**
@@ -122,8 +121,8 @@ public class BaseTest extends Base {
      * @param date date with format dd-MM-yyyy
      * @return ZonedDateTime
      */
-    protected static ZonedDateTime createZonedDateTime(final String date) {
-        return ZonedDateTime.parse(date + " 00:00:00 UTC", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss VV"));
+    protected static OffsetDateTime createZonedDateTime(final String date) {
+        return OffsetDateTime.parse(date + " 00:00:00 UTC", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss VV"));
     }
 
 }

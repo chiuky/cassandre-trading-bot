@@ -16,7 +16,9 @@ import tech.cassandre.trading.bot.test.util.junit.BaseTest;
 import tech.cassandre.trading.bot.test.util.junit.configuration.Configuration;
 import tech.cassandre.trading.bot.test.util.junit.configuration.Property;
 
+import java.time.OffsetDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
@@ -73,7 +75,7 @@ public class Issue427Test extends BaseTest {
                 .status(NEW)
                 .cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
                 .userReference("MY_REF_1")
-                .timestamp(ZonedDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneId.of("UTC")))
+                .timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
                 .build());
 
         // We wait a bit, the local order should be here.
