@@ -6,7 +6,6 @@ import tech.cassandre.trading.bot.dto.trade.TradeDTO;
 import tech.cassandre.trading.bot.dto.util.CurrencyAmountDTO;
 
 import java.time.OffsetDateTime;
-import java.time.ZonedDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static tech.cassandre.trading.bot.dto.trade.OrderTypeDTO.BID;

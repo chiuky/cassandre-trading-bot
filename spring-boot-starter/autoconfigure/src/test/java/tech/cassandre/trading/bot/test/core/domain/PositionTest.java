@@ -30,7 +30,6 @@ import tech.cassandre.trading.bot.util.exception.PositionException;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
-import java.time.ZonedDateTime;
 import java.util.Iterator;
 import java.util.Optional;
 

@@ -1,7 +1,7 @@
 package tech.cassandre.trading.bot.util.java;
 
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
+import java.time.OffsetDateTime;
 
 /**
  * Equals builder dealing correctly with BigDecimal and ZonedDateTime.
@@ -32,9 +32,9 @@ public class EqualsBuilder {
             if (object1 instanceof BigDecimal) {
                 // Big Decimal.
                 equals = ((BigDecimal) object1).compareTo((BigDecimal) object2) == 0;
-            } else if (object1 instanceof ZonedDateTime) {
-                // ZonedDateTime.
-                equals = ((ZonedDateTime) object1).isEqual((ZonedDateTime) object2);
+            } else if (object1 instanceof OffsetDateTime) {
+                // OffsetDateTime.
+                equals = ((OffsetDateTime) object1).isEqual((OffsetDateTime) object2);
             } else {
                 equals = object1.equals(object2);
             }

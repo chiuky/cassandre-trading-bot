@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import tech.cassandre.trading.bot.util.base.configuration.BaseConfiguration;
 
-import java.time.ZonedDateTime;
+import java.time.OffsetDateTime;
 import java.util.Optional;
 
 /**
@@ -33,7 +33,7 @@ public class DatabaseAutoConfiguration extends BaseConfiguration {
      */
     @Bean
     public DateTimeProvider auditingDateTimeProvider() {
-        return () -> Optional.of(ZonedDateTime.now());
+        return () -> Optional.of(OffsetDateTime.now());
     }
 
 }
