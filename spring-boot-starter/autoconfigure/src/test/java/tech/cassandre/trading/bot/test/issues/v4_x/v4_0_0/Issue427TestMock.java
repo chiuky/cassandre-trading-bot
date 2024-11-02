@@ -106,7 +106,7 @@ public class Issue427TestMock extends BaseTest {
                 .status(NEW)
                 .cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
                 .userReference("MY_REF_1")
-                .timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
+                .timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("Z")))
                 .build());
         orders.add(OrderDTO.builder()
                 .orderId("ORDER_000002")
@@ -119,7 +119,7 @@ public class Issue427TestMock extends BaseTest {
                 .status(NEW)
                 .cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
                 .userReference("MY_REF_1")
-                .timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
+                .timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("Z")))
                 .build());
         given(service.getOrders()).willReturn(orders);
 

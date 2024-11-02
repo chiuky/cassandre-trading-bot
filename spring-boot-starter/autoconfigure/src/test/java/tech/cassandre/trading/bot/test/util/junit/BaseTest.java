@@ -121,8 +121,8 @@ public class BaseTest extends Base {
      * @param date date with format dd-MM-yyyy
      * @return ZonedDateTime
      */
-    protected static OffsetDateTime createZonedDateTime(final String date) {
-        return OffsetDateTime.parse(date + " 00:00:00 UTC", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss VV"));
+     protected static OffsetDateTime createZonedDateTime(final String date) {
+        return ZonedDateTime.parse(date + " 00:00:00 UTC", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss VV")).toOffsetDateTime();
     }
 
 }

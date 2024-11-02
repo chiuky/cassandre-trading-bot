@@ -75,7 +75,7 @@ public class Issue427Test extends BaseTest {
                 .status(NEW)
                 .cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
                 .userReference("MY_REF_1")
-                .timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
+                .timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("Z")))
                 .build());
 
         // We wait a bit, the local order should be here.

@@ -38,7 +38,7 @@ public class OrderDTOTest {
 				.status(NEW)
 				.cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
 				.userReference("MY_REF_1")
-				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
+				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("Z")))
 				.build();
 
 		// Order 2 - same as order 1.
@@ -53,7 +53,7 @@ public class OrderDTOTest {
 				.status(NEW)
 				.cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
 				.userReference("MY_REF_1")
-				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
+				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("Z")))
 				.build();
 		assertEquals(order01, order02);
 		assertEquals(order02, order01);
@@ -70,7 +70,7 @@ public class OrderDTOTest {
 				.status(NEW)
 				.cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
 				.userReference("MY_REF_1")
-				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
+				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("Z")))
 				.build();
 		assertNotEquals(order01, order03);
 		assertNotEquals(order03, order01);
@@ -87,7 +87,7 @@ public class OrderDTOTest {
 				.status(NEW)
 				.cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
 				.userReference("MY_REF_1")
-				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
+				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("Z")))
 				.build();
 		assertNotEquals(order01, order04);
 		assertNotEquals(order04, order01);
@@ -104,7 +104,7 @@ public class OrderDTOTest {
 				.status(NEW)
 				.cumulativeAmount(new CurrencyAmountDTO("2", ETH_USDT.getBaseCurrency()))
 				.userReference("MY_REF_1")
-				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
+				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("Z")))
 				.build();
 		assertNotEquals(order01, order05);
 		assertNotEquals(order03, order05);
@@ -122,7 +122,7 @@ public class OrderDTOTest {
 				.status(NEW)
 				.cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
 				.userReference("MY_REF_1")
-				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
+				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("Z")))
 				.build();
 		assertNotEquals(order01, order06);
 		assertNotEquals(order06, order01);
@@ -139,7 +139,7 @@ public class OrderDTOTest {
 				.status(NEW)
 				.cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
 				.userReference("MY_REF_1")
-				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
+				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("Z")))
 				.build();
 		assertNotEquals(order01, order07);
 		assertNotEquals(order07, order01);
@@ -156,7 +156,7 @@ public class OrderDTOTest {
 				.status(NEW)
 				.cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
 				.userReference("MY_REF_1")
-				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
+				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("Z")))
 				.build();
 		assertNotEquals(order01, order08);
 		assertNotEquals(order08, order01);
@@ -173,7 +173,7 @@ public class OrderDTOTest {
 				.status(NEW)
 				.cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
 				.userReference("MY_REF_1")
-				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
+				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("Z")))
 				.build();
 		assertNotEquals(order01, order09);
 		assertNotEquals(order09, order01);
@@ -190,7 +190,7 @@ public class OrderDTOTest {
 				.status(PENDING_NEW)
 				.cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
 				.userReference("MY_REF_1")
-				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
+				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("Z")))
 				.build();
 		assertNotEquals(order01, order10);
 		assertNotEquals(order10, order01);
@@ -207,7 +207,7 @@ public class OrderDTOTest {
 				.status(NEW)
 				.cumulativeAmount(new CurrencyAmountDTO("9", ETH_BTC.getBaseCurrency()))
 				.userReference("MY_REF_1")
-				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
+				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("Z")))
 				.build();
 		assertNotEquals(order01, order11);
 		assertNotEquals(order11, order01);
@@ -224,7 +224,7 @@ public class OrderDTOTest {
 				.status(NEW)
 				.cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
 				.userReference("MY_REF_2")
-				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("UTC")))
+				.timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("Z")))
 				.build();
 		assertNotEquals(order01, order12);
 		assertNotEquals(order12, order01);
@@ -241,7 +241,7 @@ public class OrderDTOTest {
 				.status(NEW)
 				.cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
 				.userReference("MY_REF_1")
-				.timestamp(OffsetDateTime.of(2018, 1, 3, 0, 0, 0, 0, ZoneOffset.of("UTC")))
+				.timestamp(OffsetDateTime.of(2018, 1, 3, 0, 0, 0, 0, ZoneOffset.of("Z")))
 				.build();
 		assertNotEquals(order01, order13);
 		assertNotEquals(order13, order01);
