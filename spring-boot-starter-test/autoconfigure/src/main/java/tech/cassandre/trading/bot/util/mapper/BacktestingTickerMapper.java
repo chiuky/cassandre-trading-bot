@@ -8,14 +8,10 @@ import tech.cassandre.trading.bot.domain.BacktestingCandle;
 import tech.cassandre.trading.bot.domain.ImportedCandle;
 import tech.cassandre.trading.bot.dto.market.TickerDTO;
 
-import java.time.OffsetDateTime;
-import java.time.ZoneId;
-import java.util.Date;
-
 /**
  * Backtesting candle mapper.
  */
-@Mapper(uses = CurrencyMapper.class, componentModel = MappingConstants.ComponentModel.JAKARTA)
+@Mapper(uses = CurrencyMapper.class)
 public interface BacktestingTickerMapper {
 
     // =================================================================================================================
