@@ -72,7 +72,7 @@ public class BacktestingCandle {
     private BigDecimal volume;
 
     /** Bucket start time. */
-    @Column(name = "TIMESTAMP")
+    @Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP WITH TIME ZONE")
     private OffsetDateTime timestamp;
 
     /**

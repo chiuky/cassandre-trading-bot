@@ -18,8 +18,8 @@ public class TickerDTOTest extends BaseTest {
 	@DisplayName("Check equals()")
 	public void checkEqualToForTickers() {
 		// Dates.
-		OffsetDateTime date1 = createZonedDateTime("23-09-2017");
-		OffsetDateTime date2 = createZonedDateTime("02-10-2018");
+		OffsetDateTime date1 = createOffsetDateTime("23-09-2017");
+		OffsetDateTime date2 = createOffsetDateTime("02-10-2018");
 
 		// Rules: Ticker equality is based on currency pair and date only.
 

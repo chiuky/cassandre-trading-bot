@@ -84,7 +84,7 @@ public class TradeTest extends BaseTest {
         assertEquals(0, new BigDecimal("1").compareTo(trade1.get().getFee().getValue()));
         assertEquals(USDT, trade1.get().getFee().getCurrency());
         assertEquals("Trade 01", trade1.get().getUserReference());
-        assertTrue(createZonedDateTime("01-08-2020").isEqual(trade1.get().getTimestamp()));
+        assertTrue(createOffsetDateTime("01-08-2020").isEqual(trade1.get().getTimestamp()));
 
         // Test equals.
         Optional<TradeDTO> trade1Bis = strategy.getTradeByTradeId("BACKUP_TRADE_01");
@@ -107,7 +107,7 @@ public class TradeTest extends BaseTest {
         assertEquals(0, new BigDecimal("2").compareTo(trade2.get().getFee().getValue()));
         assertEquals(USDT, trade2.get().getFee().getCurrency());
         assertEquals("Trade 02", trade2.get().getUserReference());
-        assertTrue(createZonedDateTime("02-08-2020").isEqual(trade2.get().getTimestamp()));
+        assertTrue(createOffsetDateTime("02-08-2020").isEqual(trade2.get().getTimestamp()));
 
         // =============================================================================================================
         // Check trade 03.
@@ -125,7 +125,7 @@ public class TradeTest extends BaseTest {
         assertEquals(0, new BigDecimal("3").compareTo(trade3.get().getFee().getValue()));
         assertEquals(USDT, trade3.get().getFee().getCurrency());
         assertEquals("Trade 03", trade3.get().getUserReference());
-        assertTrue(createZonedDateTime("03-08-2020").isEqual(trade3.get().getTimestamp()));
+        assertTrue(createOffsetDateTime("03-08-2020").isEqual(trade3.get().getTimestamp()));
 
         // =============================================================================================================
         // Check trade 04.
@@ -143,7 +143,7 @@ public class TradeTest extends BaseTest {
         assertEquals(0, new BigDecimal("4").compareTo(trade4.get().getFee().getValue()));
         assertEquals(USDT, trade4.get().getFee().getCurrency());
         assertEquals("Trade 04", trade4.get().getUserReference());
-        assertTrue(createZonedDateTime("04-08-2020").isEqual(trade4.get().getTimestamp()));
+        assertTrue(createOffsetDateTime("04-08-2020").isEqual(trade4.get().getTimestamp()));
 
         // =============================================================================================================
         // Check trade 05.
@@ -161,7 +161,7 @@ public class TradeTest extends BaseTest {
         assertEquals(0, new BigDecimal("5").compareTo(trade5.get().getFee().getValue()));
         assertEquals(USD, trade5.get().getFee().getCurrency());
         assertEquals("Trade 05", trade5.get().getUserReference());
-        assertTrue(createZonedDateTime("05-08-2020").isEqual(trade5.get().getTimestamp()));
+        assertTrue(createOffsetDateTime("05-08-2020").isEqual(trade5.get().getTimestamp()));
     }
 
     @Test
@@ -178,7 +178,7 @@ public class TradeTest extends BaseTest {
                 .price(new CurrencyAmountDTO("2.200002", ETH_BTC.getQuoteCurrency()))
                 .fee(new CurrencyAmountDTO(new BigDecimal("3.300003"), BTC))
                 .userReference("My reference !")
-                .timestamp(createZonedDateTime("01-09-2020"))
+                .timestamp(createOffsetDateTime("01-09-2020"))
                 .build();
         tradeFlux.emitValue(t1);
         await().untilAsserted(() -> assertEquals(1, strategy.getTradesUpdatesReceived().size()));
@@ -199,7 +199,7 @@ public class TradeTest extends BaseTest {
         assertEquals(0, tradeInDatabase.get().getFee().getValue().compareTo(new BigDecimal("3.300003")));
         assertEquals("BTC", tradeInDatabase.get().getFee().getCurrency());
         assertEquals("My reference !", tradeInDatabase.get().getUserReference());
-        assertTrue(createZonedDateTime("01-09-2020").isEqual(tradeInDatabase.get().getTimestamp()));
+        assertTrue(createOffsetDateTime("01-09-2020").isEqual(tradeInDatabase.get().getTimestamp()));
 
         // Tests for created on and updated on fields.
         OffsetDateTime createdOn = tradeInDatabase.get().getCreatedOn();
@@ -224,7 +224,7 @@ public class TradeTest extends BaseTest {
         assertEquals(0, tradeDTO.getFee().getValue().compareTo(new BigDecimal("3.300003")));
         assertEquals(BTC, tradeDTO.getFee().getCurrency());
         assertEquals("My reference !", tradeDTO.getUserReference());
-        assertTrue(createZonedDateTime("01-09-2020").isEqual(tradeDTO.getTimestamp()));
+        assertTrue(createOffsetDateTime("01-09-2020").isEqual(tradeDTO.getTimestamp()));
 
         // =============================================================================================================
         // Updating the trade - first time.
@@ -237,7 +237,7 @@ public class TradeTest extends BaseTest {
                 .price(new CurrencyAmountDTO("2.200002", ETH_BTC.getQuoteCurrency()))
                 .fee(new CurrencyAmountDTO(new BigDecimal("3.300003"), BTC))
                 .userReference("Updated reference")
-                .timestamp(createZonedDateTime("01-09-2020"))
+                .timestamp(createOffsetDateTime("01-09-2020"))
                 .build());
         await().untilAsserted(() -> assertEquals(2, strategy.getTradesUpdatesReceived().size()));
         Optional<Trade> trade11 = tradeRepository.findByTradeId("BACKUP_TRADE_11");
@@ -255,7 +255,7 @@ public class TradeTest extends BaseTest {
                 .currencyPair(ETH_BTC)
                 .amount(new CurrencyAmountDTO("1.100003", ETH_BTC.getBaseCurrency()))
                 .price(new CurrencyAmountDTO("2.200002", ETH_BTC.getQuoteCurrency()))
-                .timestamp(createZonedDateTime("01-09-2020"))
+                .timestamp(createOffsetDateTime("01-09-2020"))
                 .fee(new CurrencyAmountDTO(new BigDecimal("3.300003"), BTC))
                 .build());
         await().untilAsserted(() -> assertEquals(3, strategy.getTradesUpdatesReceived().size()));
@@ -280,7 +280,7 @@ public class TradeTest extends BaseTest {
                 .amount(new CurrencyAmountDTO("1.00001", ETH_BTC.getBaseCurrency()))
                 .currencyPair(ETH_BTC)
                 .userReference("MY_REF_3")
-                .timestamp(createZonedDateTime("01-01-2020"))
+                .timestamp(createOffsetDateTime("01-01-2020"))
                 .status(NEW)
                 .cumulativeAmount(new CurrencyAmountDTO("1.00002", ETH_BTC.getBaseCurrency()))
                 .averagePrice(new CurrencyAmountDTO("1.00003", ETH_BTC.getQuoteCurrency()))
@@ -300,7 +300,7 @@ public class TradeTest extends BaseTest {
                 .amount(new CurrencyAmountDTO("1.100003", ETH_BTC.getBaseCurrency()))
                 .currencyPair(ETH_BTC)
                 .price(new CurrencyAmountDTO("2.200002", ETH_BTC.getQuoteCurrency()))
-                .timestamp(createZonedDateTime("01-09-2020"))
+                .timestamp(createOffsetDateTime("01-09-2020"))
                 .fee(new CurrencyAmountDTO(new BigDecimal("3.300003"), BTC))
                 .build());
         await().untilAsserted(() -> assertEquals(tradeCount + 1, tradeRepository.count()));

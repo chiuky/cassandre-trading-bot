@@ -18,7 +18,9 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @Configuration
 public class GraphQLAPISecurityConfiguration {
 
-    /** API Key. */
+    /**
+     * API Key.
+     */
     @Value("${cassandre.trading.bot.api.graphql.key:}")
     private String key;
 

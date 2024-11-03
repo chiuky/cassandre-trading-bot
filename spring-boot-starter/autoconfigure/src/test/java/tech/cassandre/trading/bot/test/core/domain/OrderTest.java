@@ -91,7 +91,7 @@ public class OrderTest extends BaseTest {
         assertEquals(0, new BigDecimal("0.000004").compareTo(order1.get().getCumulativeAmount().getValue()));
         assertEquals(ETH, order1.get().getCumulativeAmount().getCurrency());
         assertEquals("My reference 1", order1.get().getUserReference());
-        assertTrue(createZonedDateTime("18-11-2020").isEqual(order1.get().getTimestamp()));
+        assertTrue(createOffsetDateTime("18-11-2020").isEqual(order1.get().getTimestamp()));
         assertEquals(0, order1.get().getTrades().size());
 
         // Test equals.
@@ -121,7 +121,7 @@ public class OrderTest extends BaseTest {
         assertEquals(0, new BigDecimal("0.000014").compareTo(order2.get().getCumulativeAmount().getValue()));
         assertEquals(USDT, order2.get().getCumulativeAmount().getCurrency());
         assertEquals("My reference 2", order2.get().getUserReference());
-        assertTrue(createZonedDateTime("19-11-2020").isEqual(order2.get().getTimestamp()));
+        assertTrue(createOffsetDateTime("19-11-2020").isEqual(order2.get().getTimestamp()));
         assertEquals(0, order2.get().getTrades().size());
 
         // =============================================================================================================
@@ -161,7 +161,7 @@ public class OrderTest extends BaseTest {
                 .status(NEW)
                 .cumulativeAmount(new CurrencyAmountDTO("1.00002", ETH_BTC.getBaseCurrency()))
                 .userReference("MY_REF_3")
-                .timestamp(createZonedDateTime("01-01-2020"))
+                .timestamp(createOffsetDateTime("01-01-2020"))
                 .build();
         orderFlux.emitValue(order01);
         await().untilAsserted(() -> assertEquals(orderCount + 1, orderRepository.count()));
@@ -189,7 +189,7 @@ public class OrderTest extends BaseTest {
         assertEquals(0, new BigDecimal("1.00002").compareTo(orderInDatabase.get().getCumulativeAmount().getValue()));
         assertEquals(ETH_BTC.getBaseCurrency().toString(), orderInDatabase.get().getCumulativeAmount().getCurrency());
         assertEquals("MY_REF_3", orderInDatabase.get().getUserReference());
-        assertTrue(createZonedDateTime("01-01-2020").isEqual(orderInDatabase.get().getTimestamp()));
+        assertTrue(createOffsetDateTime("01-01-2020").isEqual(orderInDatabase.get().getTimestamp()));
         OffsetDateTime createdOn = orderInDatabase.get().getCreatedOn();
         assertNotNull(createdOn);
         assertNull(orderInDatabase.get().getUpdatedOn());
@@ -217,7 +217,7 @@ public class OrderTest extends BaseTest {
         assertEquals(0, new BigDecimal("1.00002").compareTo(order.get().getCumulativeAmount().getValue()));
         assertEquals(ETH_BTC.getBaseCurrency(), order.get().getCumulativeAmount().getCurrency());
         assertEquals("MY_REF_3", order.get().getUserReference());
-        assertTrue(createZonedDateTime("01-01-2020").isEqual(order.get().getTimestamp()));
+        assertTrue(createOffsetDateTime("01-01-2020").isEqual(order.get().getTimestamp()));
 
         // =============================================================================================================
         // Updating the order and also adding a trade - first time.
@@ -233,7 +233,7 @@ public class OrderTest extends BaseTest {
                 .status(NEW)
                 .cumulativeAmount(new CurrencyAmountDTO("1.00002", ETH_BTC.getBaseCurrency()))
                 .userReference("MY_REF_3")
-                .timestamp(createZonedDateTime("01-01-2020"))
+                .timestamp(createOffsetDateTime("01-01-2020"))
                 .build());
         await().untilAsserted(() -> assertNotNull(getOrder("BACKUP_ORDER_03").getUpdatedOn()));
         assertEquals(createdOn, getOrder("BACKUP_ORDER_03").getCreatedOn());
@@ -247,7 +247,7 @@ public class OrderTest extends BaseTest {
                 .amount(new CurrencyAmountDTO("1.100001", ETH_BTC.getBaseCurrency()))
                 .price(new CurrencyAmountDTO("2.200002", ETH_BTC.getQuoteCurrency()))
                 .fee(new CurrencyAmountDTO(new BigDecimal("3.300003"), BTC))
-                .timestamp(createZonedDateTime("01-09-2020"))
+                .timestamp(createOffsetDateTime("01-09-2020"))
                 .userReference("TRADE MY_REF_3")
                 .build());
         await().untilAsserted(() -> assertEquals(1, strategy.getTradesUpdatesReceived().size()));
@@ -271,7 +271,7 @@ public class OrderTest extends BaseTest {
                 .status(NEW)
                 .cumulativeAmount(new CurrencyAmountDTO("1.00002", ETH_BTC.getBaseCurrency()))
                 .userReference("MY_REF_3")
-                .timestamp(createZonedDateTime("01-01-2020"))
+                .timestamp(createOffsetDateTime("01-01-2020"))
                 .build());
         await().untilAsserted(() -> assertTrue(updatedOn.isBefore(getOrder("BACKUP_ORDER_03").getUpdatedOn())));
         assertEquals(createdOn, getOrder("BACKUP_ORDER_03").getCreatedOn());

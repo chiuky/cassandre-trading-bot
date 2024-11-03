@@ -10,7 +10,10 @@ import tech.cassandre.trading.bot.dto.util.CurrencyPairDTO;
 import tech.cassandre.trading.bot.util.base.Base;
 
 import java.math.BigDecimal;
-import java.time.*;
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Optional;
@@ -110,9 +113,8 @@ public class BaseTest extends Base {
      * @param day day
      * @return date
      */
-    protected static OffsetDateTime createZonedDateTime(final int day) {
-        return OffsetDateTime.of(2020, 1, day, 0, 0, 0, 0,
-                ZoneId.systemDefault().getRules().getOffset(Instant.now()));
+    protected static OffsetDateTime createOffsetDateTime(final int day) {
+        return ZonedDateTime.of(2020, 1, day, 0, 0, 0, 0, ZoneId.systemDefault()).toOffsetDateTime();
     }
 
     /**
@@ -121,7 +123,7 @@ public class BaseTest extends Base {
      * @param date date with format dd-MM-yyyy
      * @return ZonedDateTime
      */
-     protected static OffsetDateTime createZonedDateTime(final String date) {
+     protected static OffsetDateTime createOffsetDateTime(final String date) {
         return ZonedDateTime.parse(date + " 00:00:00 UTC", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss VV")).toOffsetDateTime();
     }
 

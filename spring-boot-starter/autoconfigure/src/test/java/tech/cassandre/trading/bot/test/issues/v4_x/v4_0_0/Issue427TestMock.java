@@ -69,19 +69,19 @@ public class Issue427TestMock extends BaseTest {
         given(marketService
                 .getTicker(ETH_BTC))
                 .willReturn(
-                        Optional.of(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createZonedDateTime(1)).last(new BigDecimal("0.2")).build()),
-                        Optional.of(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createZonedDateTime(2)).last(new BigDecimal("0.3")).build()),
-                        Optional.of(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createZonedDateTime(3)).last(new BigDecimal("0.4")).build()),
-                        Optional.of(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createZonedDateTime(4)).last(new BigDecimal("0.4")).build())
+                        Optional.of(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createOffsetDateTime(1)).last(new BigDecimal("0.2")).build()),
+                        Optional.of(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createOffsetDateTime(2)).last(new BigDecimal("0.3")).build()),
+                        Optional.of(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createOffsetDateTime(3)).last(new BigDecimal("0.4")).build()),
+                        Optional.of(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createOffsetDateTime(4)).last(new BigDecimal("0.4")).build())
                 );
         // Replies for ETH/USDT.
         given(marketService
                 .getTicker(ETH_USDT))
                 .willReturn(
-                        Optional.of(TickerDTO.builder().currencyPair(ETH_USDT).timestamp(createZonedDateTime(5)).last(new BigDecimal("0.3")).build()),
-                        Optional.of(TickerDTO.builder().currencyPair(ETH_USDT).timestamp(createZonedDateTime(6)).last(new BigDecimal("0.3")).build()),
-                        Optional.of(TickerDTO.builder().currencyPair(ETH_USDT).timestamp(createZonedDateTime(7)).last(new BigDecimal("0.6")).build()),
-                        Optional.of(TickerDTO.builder().currencyPair(ETH_USDT).timestamp(createZonedDateTime(8)).last(new BigDecimal("0.1")).build())
+                        Optional.of(TickerDTO.builder().currencyPair(ETH_USDT).timestamp(createOffsetDateTime(5)).last(new BigDecimal("0.3")).build()),
+                        Optional.of(TickerDTO.builder().currencyPair(ETH_USDT).timestamp(createOffsetDateTime(6)).last(new BigDecimal("0.3")).build()),
+                        Optional.of(TickerDTO.builder().currencyPair(ETH_USDT).timestamp(createOffsetDateTime(7)).last(new BigDecimal("0.6")).build()),
+                        Optional.of(TickerDTO.builder().currencyPair(ETH_USDT).timestamp(createOffsetDateTime(8)).last(new BigDecimal("0.1")).build())
                 );
         return marketService;
     }

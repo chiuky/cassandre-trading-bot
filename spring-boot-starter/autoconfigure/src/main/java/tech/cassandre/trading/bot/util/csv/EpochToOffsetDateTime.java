@@ -9,9 +9,9 @@ import java.time.ZoneId;
 import java.util.Date;
 
 /**
- * Allows to transform an epoch time to a Zoned date time.
+ * Allows to transform an epoch time to a Offset date time.
  */
-public class EpochToZonedDateTime extends AbstractBeanField<ImportedTicker, ImportedTicker> {
+public class EpochToOffsetDateTime extends AbstractBeanField<ImportedTicker, ImportedTicker> {
 
     /** To milliseconds. */
     public static final int MILLISECONDS = 1_000;
