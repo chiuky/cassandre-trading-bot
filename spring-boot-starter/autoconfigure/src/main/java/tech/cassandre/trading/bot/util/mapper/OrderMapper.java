@@ -9,10 +9,6 @@ import tech.cassandre.trading.bot.dto.trade.OrderDTO;
 import tech.cassandre.trading.bot.dto.util.CurrencyAmountDTO;
 import tech.cassandre.trading.bot.dto.util.CurrencyPairDTO;
 
-import java.time.OffsetDateTime;
-import java.time.ZoneId;
-import java.util.Date;
-
 import static org.mapstruct.NullValuePropertyMappingStrategy.IGNORE;
 
 /**

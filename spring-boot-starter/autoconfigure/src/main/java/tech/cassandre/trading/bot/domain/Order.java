@@ -26,7 +26,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
-
 import java.time.OffsetDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;

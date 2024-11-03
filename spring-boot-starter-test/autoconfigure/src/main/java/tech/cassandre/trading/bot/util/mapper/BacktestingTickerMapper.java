@@ -2,8 +2,6 @@ package tech.cassandre.trading.bot.util.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.Named;
 import tech.cassandre.trading.bot.domain.BacktestingCandle;
 import tech.cassandre.trading.bot.domain.ImportedCandle;
 import tech.cassandre.trading.bot.dto.market.TickerDTO;
