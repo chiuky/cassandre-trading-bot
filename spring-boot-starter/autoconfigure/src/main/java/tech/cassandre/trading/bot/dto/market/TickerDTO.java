@@ -10,7 +10,7 @@ import tech.cassandre.trading.bot.util.java.EqualsBuilder;
 import tech.cassandre.trading.bot.util.test.ExcludeFromCoverageGeneratedReport;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -63,7 +63,7 @@ public class TickerDTO {
     BigDecimal askSize;
 
     /** Information timestamp. */
-    OffsetDateTime timestamp;
+    ZonedDateTime timestamp;
 
     /**
      * Returns base currency.
@@ -88,8 +88,8 @@ public class TickerDTO {
      *
      * @return timestamp
      */
-    public OffsetDateTime getTimestamp() {
-        return Objects.requireNonNullElseGet(timestamp, OffsetDateTime::now);
+    public ZonedDateTime getTimestamp() {
+        return Objects.requireNonNullElseGet(timestamp, ZonedDateTime::now);
     }
 
     @Override

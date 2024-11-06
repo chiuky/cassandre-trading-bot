@@ -82,7 +82,7 @@ public class TradeFluxTest extends BaseTest {
         assertEquals(new CurrencyAmountDTO("2.200002", ETH_BTC.getQuoteCurrency()), t.getPrice());
         assertEquals(new CurrencyAmountDTO("3.300003", BTC), t.getFee());
         assertEquals("Ref TRADE_0000001", t.getUserReference());
-        assertTrue(createOffsetDateTime(1).isEqual(t.getTimestamp()));
+        assertTrue(createZonedDateTime(1).isEqual(t.getTimestamp()));
 
         // Check update 2.
         t = trades.next();
@@ -95,7 +95,7 @@ public class TradeFluxTest extends BaseTest {
         assertEquals(new CurrencyAmountDTO("2.200002", ETH_BTC.getQuoteCurrency()), t.getPrice());
         assertEquals(new CurrencyAmountDTO("3.300003", BTC), t.getFee());
         assertEquals("Ref TRADE_0000002", t.getUserReference());
-        assertTrue(createOffsetDateTime("01-09-2020").isEqual(t.getTimestamp()));
+        assertTrue(createZonedDateTime("01-09-2020").isEqual(t.getTimestamp()));
 
         // Check update 3.
         t = trades.next();
@@ -108,7 +108,7 @@ public class TradeFluxTest extends BaseTest {
         assertEquals(new CurrencyAmountDTO("2.200002", ETH_USDT.getQuoteCurrency()), t.getPrice());
         assertEquals(new CurrencyAmountDTO("3.300003", ETH), t.getFee());
         assertEquals("Ref TRADE_0000003", t.getUserReference());
-        assertTrue(createOffsetDateTime("01-09-2020").isEqual(t.getTimestamp()));
+        assertTrue(createZonedDateTime("01-09-2020").isEqual(t.getTimestamp()));
 
         // Check update 4.
         t = trades.next();
@@ -121,7 +121,7 @@ public class TradeFluxTest extends BaseTest {
         assertEquals(new CurrencyAmountDTO("2.200002", ETH_BTC.getQuoteCurrency()), t.getPrice());
         assertEquals(new CurrencyAmountDTO("3.300003", BTC), t.getFee());
         assertEquals("Ref TRADE_0000004", t.getUserReference());
-        assertTrue(createOffsetDateTime("01-09-2020").isEqual(t.getTimestamp()));
+        assertTrue(createZonedDateTime("01-09-2020").isEqual(t.getTimestamp()));
 
         // Check update 5.
         t = trades.next();
@@ -134,7 +134,7 @@ public class TradeFluxTest extends BaseTest {
         assertEquals(new CurrencyAmountDTO("2.200002", ETH_BTC.getQuoteCurrency()), t.getPrice());
         assertEquals(new CurrencyAmountDTO("3.300003", BTC), t.getFee());
         assertEquals("Ref TRADE_0000005", t.getUserReference());
-        assertTrue(createOffsetDateTime("01-09-2020").isEqual(t.getTimestamp()));
+        assertTrue(createZonedDateTime("01-09-2020").isEqual(t.getTimestamp()));
 
         // Check update 6.
         t = trades.next();
@@ -147,7 +147,7 @@ public class TradeFluxTest extends BaseTest {
         assertEquals(new CurrencyAmountDTO("2.200002", ETH_USDT.getQuoteCurrency()), t.getPrice());
         assertEquals(new CurrencyAmountDTO("3.300003", USDT), t.getFee());
         assertEquals("Ref TRADE_0000006", t.getUserReference());
-        assertTrue(createOffsetDateTime("01-08-2018").isEqual(t.getTimestamp()));
+        assertTrue(createZonedDateTime("01-08-2018").isEqual(t.getTimestamp()));
 
         // Check update 7.
         t = trades.next();
@@ -160,7 +160,7 @@ public class TradeFluxTest extends BaseTest {
         assertEquals(new CurrencyAmountDTO("2.200002", ETH_BTC.getQuoteCurrency()), t.getPrice());
         assertEquals(new CurrencyAmountDTO("3.300003", BTC), t.getFee());
         assertEquals("Ref TRADE_0000008", t.getUserReference());
-        assertTrue(createOffsetDateTime("02-09-2020").isEqual(t.getTimestamp()));
+        assertTrue(createZonedDateTime("02-09-2020").isEqual(t.getTimestamp()));
 
         // Check update 8.
         t = trades.next();
@@ -173,7 +173,7 @@ public class TradeFluxTest extends BaseTest {
         assertEquals(new CurrencyAmountDTO("2.220002", ETH_USDT.getQuoteCurrency()), t.getPrice());
         assertEquals(new CurrencyAmountDTO("3.330003", BTC), t.getFee());
         assertEquals("Ref TRADE_0000003", t.getUserReference());
-        assertTrue(createOffsetDateTime("01-09-2021").isEqual(t.getTimestamp()));
+        assertTrue(createZonedDateTime("01-09-2021").isEqual(t.getTimestamp()));
 
         // =============================================================================================================
         // Check data we have in strategy & database.
@@ -200,7 +200,7 @@ public class TradeFluxTest extends BaseTest {
         assertEquals(new CurrencyAmountDTO("2.200002", ETH_BTC.getQuoteCurrency()), t1.get().getPrice());
         assertEquals(new CurrencyAmountDTO("3.300003", BTC), t1.get().getFee());
         assertEquals("Ref TRADE_0000001", t1.get().getUserReference());
-        assertTrue(createOffsetDateTime(1).isEqual(t1.get().getTimestamp()));
+        assertTrue(createZonedDateTime(1).isEqual(t1.get().getTimestamp()));
 
         // Trade TRADE_0000002.
         final Optional<TradeDTO> t2 = strategy.getTradeByTradeId("TRADE_0000002");
@@ -214,7 +214,7 @@ public class TradeFluxTest extends BaseTest {
         assertEquals(new CurrencyAmountDTO("2.200002", ETH_BTC.getQuoteCurrency()), t2.get().getPrice());
         assertEquals(new CurrencyAmountDTO("3.300003", BTC), t2.get().getFee());
         assertEquals("Ref TRADE_0000002", t2.get().getUserReference());
-        assertTrue(createOffsetDateTime("01-09-2020").isEqual(t2.get().getTimestamp()));
+        assertTrue(createZonedDateTime("01-09-2020").isEqual(t2.get().getTimestamp()));
 
         // Trade TRADE_0000003 - The trade 3 was received two times so data have been updated.
         final Optional<TradeDTO> t3 = strategy.getTradeByTradeId("TRADE_0000003");
@@ -228,7 +228,7 @@ public class TradeFluxTest extends BaseTest {
         assertEquals(new CurrencyAmountDTO("2.220002", ETH_USDT.getQuoteCurrency()), t3.get().getPrice());
         assertEquals(new CurrencyAmountDTO("3.330003", BTC), t3.get().getFee());
         assertEquals("Ref TRADE_0000003", t3.get().getUserReference());
-        assertTrue(createOffsetDateTime("01-09-2021").isEqual(t3.get().getTimestamp()));
+        assertTrue(createZonedDateTime("01-09-2021").isEqual(t3.get().getTimestamp()));
 
         // Trade TRADE_0000004.
         final Optional<TradeDTO> t4 = strategy.getTradeByTradeId("TRADE_0000004");
@@ -242,7 +242,7 @@ public class TradeFluxTest extends BaseTest {
         assertEquals(new CurrencyAmountDTO("2.200002", ETH_BTC.getQuoteCurrency()), t4.get().getPrice());
         assertEquals(new CurrencyAmountDTO("3.300003", BTC), t4.get().getFee());
         assertEquals("Ref TRADE_0000004", t4.get().getUserReference());
-        assertTrue(createOffsetDateTime("01-09-2020").isEqual(t4.get().getTimestamp()));
+        assertTrue(createZonedDateTime("01-09-2020").isEqual(t4.get().getTimestamp()));
 
         // Trade TRADE_0000005.
         final Optional<TradeDTO> t5 = strategy.getTradeByTradeId("TRADE_0000005");
@@ -256,7 +256,7 @@ public class TradeFluxTest extends BaseTest {
         assertEquals(new CurrencyAmountDTO("2.200002", ETH_BTC.getQuoteCurrency()), t5.get().getPrice());
         assertEquals(new CurrencyAmountDTO("3.300003", BTC), t5.get().getFee());
         assertEquals("Ref TRADE_0000005", t5.get().getUserReference());
-        assertTrue(createOffsetDateTime("01-09-2020").isEqual(t5.get().getTimestamp()));
+        assertTrue(createZonedDateTime("01-09-2020").isEqual(t5.get().getTimestamp()));
 
         // Trade TRADE_0000006.
         final Optional<TradeDTO> t6 = strategy.getTradeByTradeId("TRADE_0000006");
@@ -270,7 +270,7 @@ public class TradeFluxTest extends BaseTest {
         assertEquals(new CurrencyAmountDTO("2.200002", ETH_USDT.getQuoteCurrency()), t6.get().getPrice());
         assertEquals(new CurrencyAmountDTO("3.300003", USDT), t6.get().getFee());
         assertEquals("Ref TRADE_0000006", t6.get().getUserReference());
-        assertTrue(createOffsetDateTime("01-08-2018").isEqual(t6.get().getTimestamp()));
+        assertTrue(createZonedDateTime("01-08-2018").isEqual(t6.get().getTimestamp()));
 
         // Trade TRADE_0000008.
         final Optional<TradeDTO> t8 = strategy.getTradeByTradeId("TRADE_0000008");
@@ -284,7 +284,7 @@ public class TradeFluxTest extends BaseTest {
         assertEquals(new CurrencyAmountDTO("2.200002", ETH_BTC.getQuoteCurrency()), t8.get().getPrice());
         assertEquals(new CurrencyAmountDTO("3.300003", BTC), t8.get().getFee());
         assertEquals("Ref TRADE_0000008", t8.get().getUserReference());
-        assertTrue(createOffsetDateTime("02-09-2020").isEqual(t8.get().getTimestamp()));
+        assertTrue(createZonedDateTime("02-09-2020").isEqual(t8.get().getTimestamp()));
 
         // =============================================================================================================
         // Check that there is a correct link between order and trades.

@@ -11,7 +11,6 @@ import tech.cassandre.trading.bot.util.base.Base;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.time.OffsetDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -94,7 +93,7 @@ public class BaseTest extends Base {
      *
      * @return random date
      */
-    public static OffsetDateTime getRandomDate() {
+    public static ZonedDateTime getRandomDate() {
         long aDay = TimeUnit.DAYS.toMillis(1);
         long now = new Date().getTime();
         Date hundredYearsAgo = new Date(now - aDay * 365 * 100);
@@ -104,7 +103,7 @@ public class BaseTest extends Base {
         long randomMillisSinceEpoch = ThreadLocalRandom
                 .current()
                 .nextLong(startMillis, endMillis);
-        return OffsetDateTime.ofInstant(Instant.ofEpochSecond(randomMillisSinceEpoch), ZoneId.systemDefault());
+        return ZonedDateTime.ofInstant(Instant.ofEpochSecond(randomMillisSinceEpoch), ZoneId.systemDefault());
     }
 
     /**
@@ -113,8 +112,8 @@ public class BaseTest extends Base {
      * @param day day
      * @return date
      */
-    protected static OffsetDateTime createOffsetDateTime(final int day) {
-        return ZonedDateTime.of(2020, 1, day, 0, 0, 0, 0, ZoneId.systemDefault()).toOffsetDateTime();
+    protected static ZonedDateTime createZonedDateTime(final int day) {
+        return ZonedDateTime.of(2020, 1, day, 0, 0, 0, 0, ZoneId.systemDefault());
     }
 
     /**
@@ -123,8 +122,8 @@ public class BaseTest extends Base {
      * @param date date with format dd-MM-yyyy
      * @return ZonedDateTime
      */
-     protected static OffsetDateTime createOffsetDateTime(final String date) {
-        return ZonedDateTime.parse(date + " 00:00:00 UTC", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss VV")).toOffsetDateTime();
+     protected static ZonedDateTime createZonedDateTime(final String date) {
+        return ZonedDateTime.parse(date + " 00:00:00 UTC", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss VV"));
     }
 
 }

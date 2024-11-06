@@ -27,7 +27,7 @@ import tech.cassandre.trading.bot.test.util.junit.configuration.Property;
 import tech.cassandre.trading.bot.test.util.strategies.TestableCassandreStrategy;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.ZonedDateTime;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -223,7 +223,7 @@ public class PositionServiceTest extends BaseTest {
                 .currencyPair(ETH_USDT)
                 .amount(new CurrencyAmountDTO("1.00001", ETH_USDT.getBaseCurrency()))
                 .status(FILLED)
-                .timestamp(OffsetDateTime.now())
+                .timestamp(ZonedDateTime.now())
                 .build());
         await().untilAsserted(() -> assertEquals(positionUpdateCount1 + 1, strategy.getPositionsUpdatesReceived().size()));
 
@@ -278,7 +278,7 @@ public class PositionServiceTest extends BaseTest {
                 .currencyPair(ETH_BTC)
                 .amount(new CurrencyAmountDTO("1.00001", ETH_USDT.getBaseCurrency()))
                 .status(FILLED)
-                .timestamp(OffsetDateTime.now())
+                .timestamp(ZonedDateTime.now())
                 .build();
         position1.get().closePositionWithOrder(closingOrder01);
         positionFlux.emitValue(position1.get());
@@ -369,7 +369,7 @@ public class PositionServiceTest extends BaseTest {
                 .strategy(strategyDTO)
                 .amount(new CurrencyAmountDTO("0.00012", ETH_BTC.getBaseCurrency()))
                 .currencyPair(ETH_BTC)
-                .timestamp(OffsetDateTime.now())
+                .timestamp(ZonedDateTime.now())
                 .status(STOPPED)
                 .build();
         orderFlux.emitValue(order00010);
@@ -442,7 +442,7 @@ public class PositionServiceTest extends BaseTest {
                 .strategy(strategyDTO)
                 .amount(new CurrencyAmountDTO("1.00001", ETH_BTC.getBaseCurrency()))
                 .currencyPair(ETH_BTC)
-                .timestamp(OffsetDateTime.now())
+                .timestamp(ZonedDateTime.now())
                 .status(FILLED)
                 .cumulativeAmount(new CurrencyAmountDTO("0.0002", ETH_BTC.getBaseCurrency()))
                 .build();
@@ -459,7 +459,7 @@ public class PositionServiceTest extends BaseTest {
                 .strategy(strategyDTO)
                 .amount(new CurrencyAmountDTO("1.00001", ETH_BTC.getBaseCurrency()))
                 .currencyPair(ETH_BTC)
-                .timestamp(OffsetDateTime.now())
+                .timestamp(ZonedDateTime.now())
                 .status(CANCELED)
                 .cumulativeAmount(new CurrencyAmountDTO("0.0002", ETH_BTC.getBaseCurrency()))
                 .build();

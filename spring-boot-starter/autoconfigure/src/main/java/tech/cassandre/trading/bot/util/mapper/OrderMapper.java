@@ -31,7 +31,6 @@ public interface OrderMapper {
     @Mapping(target = "strategy", ignore = true)
     @Mapping(target = "trades", ignore = true)
     @Mapping(target = "trade", ignore = true)
-    @Mapping(source = "timestamp", target = "timestamp", qualifiedByName = "mapDateToOffsetDateTime")
     OrderDTO mapToOrderDTO(LimitOrder source);
 
     @Named("mapLimitOrderToOrderDTOAmount")

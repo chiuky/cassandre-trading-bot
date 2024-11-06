@@ -13,7 +13,7 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 
 import static tech.cassandre.trading.bot.configuration.DatabaseAutoConfiguration.PRECISION;
@@ -73,7 +73,7 @@ public class BacktestingCandle {
 
     /** Bucket start time. */
     @Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP WITH TIME ZONE")
-    private OffsetDateTime timestamp;
+    private ZonedDateTime timestamp;
 
     /**
      * Returns currency pair DTO.

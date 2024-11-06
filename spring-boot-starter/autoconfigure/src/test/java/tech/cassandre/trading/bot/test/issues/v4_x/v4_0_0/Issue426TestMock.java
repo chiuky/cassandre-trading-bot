@@ -19,8 +19,8 @@ import tech.cassandre.trading.bot.service.TradeService;
 import tech.cassandre.trading.bot.test.util.junit.BaseTest;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
-import java.time.ZoneOffset;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.LinkedHashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -72,19 +72,19 @@ public class Issue426TestMock extends BaseTest {
         given(marketService
                 .getTicker(ETH_BTC))
                 .willReturn(
-                        Optional.of(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createOffsetDateTime(1)).last(new BigDecimal("0.2")).build()),
-                        Optional.of(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createOffsetDateTime(2)).last(new BigDecimal("0.3")).build()),
-                        Optional.of(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createOffsetDateTime(3)).last(new BigDecimal("0.4")).build()),
-                        Optional.of(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createOffsetDateTime(4)).last(new BigDecimal("0.4")).build())
+                        Optional.of(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createZonedDateTime(1)).last(new BigDecimal("0.2")).build()),
+                        Optional.of(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createZonedDateTime(2)).last(new BigDecimal("0.3")).build()),
+                        Optional.of(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createZonedDateTime(3)).last(new BigDecimal("0.4")).build()),
+                        Optional.of(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createZonedDateTime(4)).last(new BigDecimal("0.4")).build())
                 );
         // Replies for ETH/USDT.
         given(marketService
                 .getTicker(ETH_USDT))
                 .willReturn(
-                        Optional.of(TickerDTO.builder().currencyPair(ETH_USDT).timestamp(createOffsetDateTime(5)).last(new BigDecimal("0.3")).build()),
-                        Optional.of(TickerDTO.builder().currencyPair(ETH_USDT).timestamp(createOffsetDateTime(6)).last(new BigDecimal("0.3")).build()),
-                        Optional.of(TickerDTO.builder().currencyPair(ETH_USDT).timestamp(createOffsetDateTime(7)).last(new BigDecimal("0.6")).build()),
-                        Optional.of(TickerDTO.builder().currencyPair(ETH_USDT).timestamp(createOffsetDateTime(8)).last(new BigDecimal("0.1")).build())
+                        Optional.of(TickerDTO.builder().currencyPair(ETH_USDT).timestamp(createZonedDateTime(5)).last(new BigDecimal("0.3")).build()),
+                        Optional.of(TickerDTO.builder().currencyPair(ETH_USDT).timestamp(createZonedDateTime(6)).last(new BigDecimal("0.3")).build()),
+                        Optional.of(TickerDTO.builder().currencyPair(ETH_USDT).timestamp(createZonedDateTime(7)).last(new BigDecimal("0.6")).build()),
+                        Optional.of(TickerDTO.builder().currencyPair(ETH_USDT).timestamp(createZonedDateTime(8)).last(new BigDecimal("0.1")).build())
                 );
         return marketService;
     }
@@ -144,7 +144,7 @@ public class Issue426TestMock extends BaseTest {
                 .status(NEW)
                 .cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
                 .userReference("MY_REF_1")
-                .timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("Z")))
+                .timestamp(ZonedDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneId.of("UTC")))
                 .build());
         orders.add(OrderDTO.builder()
                 .orderId("ORDER_000001")
@@ -158,7 +158,7 @@ public class Issue426TestMock extends BaseTest {
                 .status(FILLED)
                 .cumulativeAmount(new CurrencyAmountDTO("2", ETH_BTC.getBaseCurrency()))
                 .userReference("MY_REF_1")
-                .timestamp(OffsetDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneOffset.of("Z")))
+                .timestamp(ZonedDateTime.of(2018, 1, 1, 0, 0, 0, 0, ZoneId.of("UTC")))
                 .build());
         given(service.getOrders()).willReturn(orders);
 

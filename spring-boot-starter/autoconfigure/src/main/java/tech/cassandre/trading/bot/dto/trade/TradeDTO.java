@@ -11,7 +11,7 @@ import tech.cassandre.trading.bot.util.java.EqualsBuilder;
 import tech.cassandre.trading.bot.util.test.ExcludeFromCoverageGeneratedReport;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.ZonedDateTime;
 import java.util.Optional;
 
 import static lombok.AccessLevel.PRIVATE;
@@ -75,7 +75,7 @@ public class TradeDTO {
     String userReference;
 
     /** The timestamp of the trade. */
-    OffsetDateTime timestamp;
+    ZonedDateTime timestamp;
 
     /**
      * Returns amount value.

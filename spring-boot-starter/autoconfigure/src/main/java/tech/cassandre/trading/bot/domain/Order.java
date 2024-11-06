@@ -26,7 +26,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
-import java.time.OffsetDateTime;
+import java.time.ZonedDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -124,7 +124,7 @@ public class Order extends BaseDomain {
 
     /** The timestamp of the order. */
     @Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP WITH TIME ZONE")
-    private OffsetDateTime timestamp;
+    private ZonedDateTime timestamp;
 
     /** All trades related to order. */
     @OneToMany(mappedBy = "order", fetch = EAGER)

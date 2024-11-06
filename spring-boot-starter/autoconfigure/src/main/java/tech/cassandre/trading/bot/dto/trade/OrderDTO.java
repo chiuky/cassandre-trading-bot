@@ -13,7 +13,7 @@ import tech.cassandre.trading.bot.util.java.EqualsBuilder;
 import tech.cassandre.trading.bot.util.test.ExcludeFromCoverageGeneratedReport;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.ZonedDateTime;
 import java.util.Optional;
 import java.util.Set;
 
@@ -71,7 +71,7 @@ public class OrderDTO {
     String userReference;
 
     /** The timestamp of the order. */
-    OffsetDateTime timestamp;
+    ZonedDateTime timestamp;
 
     /** All trades related to this order. */
     @Singular

@@ -11,10 +11,6 @@ import tech.cassandre.trading.bot.dto.util.CurrencyAmountDTO;
 import tech.cassandre.trading.bot.dto.util.CurrencyDTO;
 import tech.cassandre.trading.bot.dto.util.CurrencyPairDTO;
 
-import java.time.OffsetDateTime;
-import java.time.ZoneId;
-import java.util.Date;
-
 import static org.mapstruct.NullValuePropertyMappingStrategy.IGNORE;
 
 /**
@@ -34,13 +30,7 @@ public interface TradeMapper {
     @Mapping(target = "order", ignore = true)
     @Mapping(source = "orderUserReference", target = "userReference")
     @Mapping(source = "instrument", target = "currencyPair")
-    @Mapping(source = "timestamp", target = "timestamp", qualifiedByName = "mapDateToOffsetDateTime")
     TradeDTO mapToTradeDTO(UserTrade source);
-
-    @Named("mapDateToOffsetDateTime")
-    default OffsetDateTime mapDateToOffsetDateTime(Date value) {
-        return value == null ? null : value.toInstant().atZone(ZoneId.systemDefault()).toOffsetDateTime();
-    }
 
     @Named("mapUserTradeToTradeDTOAmount")
     @Mapping(target = "createdOn", ignore = true)

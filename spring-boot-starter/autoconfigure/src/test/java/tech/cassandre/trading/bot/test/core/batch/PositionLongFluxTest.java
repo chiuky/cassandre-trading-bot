@@ -203,7 +203,7 @@ public class PositionLongFluxTest extends BaseTest {
                 .currencyPair(ETH_BTC)
                 .amount(new CurrencyAmountDTO("5", ETH_BTC.getBaseCurrency()))
                 .price(new CurrencyAmountDTO("0.02", ETH_BTC.getQuoteCurrency()))
-                .timestamp(createOffsetDateTime("02-02-2020"))
+                .timestamp(createZonedDateTime("02-02-2020"))
                 .build());
         // The same trade is emitted two times with an update (on timestamp).
         tradeFlux.emitValue(TradeDTO.builder()
@@ -213,7 +213,7 @@ public class PositionLongFluxTest extends BaseTest {
                 .currencyPair(ETH_BTC)
                 .amount(new CurrencyAmountDTO("5", ETH_BTC.getBaseCurrency()))
                 .price(new CurrencyAmountDTO("0.02", ETH_BTC.getQuoteCurrency()))
-                .timestamp(createOffsetDateTime("03-02-2020"))
+                .timestamp(createZonedDateTime("03-02-2020"))
                 .build());
 
         // Second trade.
@@ -224,7 +224,7 @@ public class PositionLongFluxTest extends BaseTest {
                 .currencyPair(ETH_BTC)
                 .amount(new CurrencyAmountDTO("5", ETH_BTC.getBaseCurrency()))
                 .price(new CurrencyAmountDTO("0.04", ETH_BTC.getQuoteCurrency()))
-                .timestamp(createOffsetDateTime("01-01-2020"))
+                .timestamp(createZonedDateTime("01-01-2020"))
                 .build());
         // The same trade is emitted two times with an update (on timestamp).
         tradeFlux.emitValue(TradeDTO.builder()
@@ -234,7 +234,7 @@ public class PositionLongFluxTest extends BaseTest {
                 .currencyPair(ETH_BTC)
                 .amount(new CurrencyAmountDTO("5", ETH_BTC.getBaseCurrency()))
                 .price(new CurrencyAmountDTO("0.04", ETH_BTC.getQuoteCurrency()))
-                .timestamp(createOffsetDateTime("02-01-2020"))
+                .timestamp(createZonedDateTime("02-01-2020"))
                 .build());
 
         // onPositionStatusUpdate - Position 1 should change to OPENED.
@@ -518,7 +518,7 @@ public class PositionLongFluxTest extends BaseTest {
                 .currencyPair(ETH_BTC)
                 .amount(new CurrencyAmountDTO("5", ETH_BTC.getBaseCurrency()))
                 .price(new CurrencyAmountDTO("1", ETH_BTC.getQuoteCurrency()))
-                .timestamp(createOffsetDateTime("01-01-2020"))
+                .timestamp(createZonedDateTime("01-01-2020"))
                 .build());
 
         // We send a duplicated value.
@@ -528,7 +528,7 @@ public class PositionLongFluxTest extends BaseTest {
                 .currencyPair(ETH_BTC)
                 .amount(new CurrencyAmountDTO("5", ETH_BTC.getBaseCurrency()))
                 .price(new CurrencyAmountDTO("1", ETH_BTC.getQuoteCurrency()))
-                .timestamp(createOffsetDateTime("01-01-2020"))
+                .timestamp(createZonedDateTime("01-01-2020"))
                 .build());
 
         // onPosition for first trade arrival.
@@ -546,7 +546,7 @@ public class PositionLongFluxTest extends BaseTest {
                 .currencyPair(ETH_BTC)
                 .amount(new CurrencyAmountDTO("5", ETH_BTC.getBaseCurrency()))
                 .price(new CurrencyAmountDTO("1", ETH_BTC.getQuoteCurrency()))
-                .timestamp(createOffsetDateTime("02-01-2020"))
+                .timestamp(createZonedDateTime("02-01-2020"))
                 .build());
 
         // onPositionStatusUpdate - Position should be closed.

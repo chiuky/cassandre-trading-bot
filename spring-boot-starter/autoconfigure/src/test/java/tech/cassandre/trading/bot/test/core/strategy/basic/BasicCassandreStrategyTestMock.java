@@ -190,16 +190,16 @@ public class BasicCassandreStrategyTestMock extends BaseTest {
 
         // Returns three values for getOpenOrders().
         Set<OrderDTO> replyGetOpenOrders = new LinkedHashSet<>();
-        replyGetOpenOrders.add(OrderDTO.builder().orderId("000001").type(BID).strategy(strategyDTO).currencyPair(ETH_BTC).timestamp(createOffsetDateTime("01-01-2020")).build());   // Order 01.
-        replyGetOpenOrders.add(OrderDTO.builder().orderId("000002").type(BID).strategy(strategyDTO).currencyPair(ETH_BTC).timestamp(createOffsetDateTime("01-02-2020")).build());   // Order 02.
-        replyGetOpenOrders.add(OrderDTO.builder().orderId("000003").type(BID).strategy(strategyDTO).currencyPair(ETH_BTC).timestamp(createOffsetDateTime("01-03-2020")).build());   // Order 03.
+        replyGetOpenOrders.add(OrderDTO.builder().orderId("000001").type(BID).strategy(strategyDTO).currencyPair(ETH_BTC).timestamp(createZonedDateTime("01-01-2020")).build());   // Order 01.
+        replyGetOpenOrders.add(OrderDTO.builder().orderId("000002").type(BID).strategy(strategyDTO).currencyPair(ETH_BTC).timestamp(createZonedDateTime("01-02-2020")).build());   // Order 02.
+        replyGetOpenOrders.add(OrderDTO.builder().orderId("000003").type(BID).strategy(strategyDTO).currencyPair(ETH_BTC).timestamp(createZonedDateTime("01-03-2020")).build());   // Order 03.
         given(service.getOrders()).willReturn(replyGetOpenOrders);
 
         // Returns three values for getTrades().
         Set<TradeDTO> replyGetTrades = new LinkedHashSet<>();
-        replyGetTrades.add(TradeDTO.builder().tradeId("0000001").orderId("000001").type(BID).currencyPair(ETH_BTC).timestamp(createOffsetDateTime("01-01-2020")).build());      // Trade 01.
-        replyGetTrades.add(TradeDTO.builder().tradeId("0000002").orderId("000001").type(BID).currencyPair(ETH_BTC).timestamp(createOffsetDateTime("01-02-2020")).build());      // Trade 02.
-        replyGetTrades.add(TradeDTO.builder().tradeId("0000003").orderId("000001").type(BID).currencyPair(ETH_BTC).timestamp(createOffsetDateTime("01-03-2020")).build());      // Trade 03.
+        replyGetTrades.add(TradeDTO.builder().tradeId("0000001").orderId("000001").type(BID).currencyPair(ETH_BTC).timestamp(createZonedDateTime("01-01-2020")).build());      // Trade 01.
+        replyGetTrades.add(TradeDTO.builder().tradeId("0000002").orderId("000001").type(BID).currencyPair(ETH_BTC).timestamp(createZonedDateTime("01-02-2020")).build());      // Trade 02.
+        replyGetTrades.add(TradeDTO.builder().tradeId("0000003").orderId("000001").type(BID).currencyPair(ETH_BTC).timestamp(createZonedDateTime("01-03-2020")).build());      // Trade 03.
         given(service.getTrades()).willReturn(replyGetTrades);
 
         return service;

@@ -29,7 +29,7 @@ import tech.cassandre.trading.bot.test.util.strategies.TestableCassandreStrategy
 import tech.cassandre.trading.bot.util.exception.PositionException;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.ZonedDateTime;
 import java.util.Iterator;
 import java.util.Optional;
 
@@ -266,7 +266,7 @@ public class PositionTest extends BaseTest {
     @DisplayName("Check how a new position is saved")
     public void checkSavedNewPosition() {
         // First ticker emitted for dry mode - MANDATORY.
-        tickerFlux.emitValue(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createOffsetDateTime(1)).last(new BigDecimal("0.2")).build());
+        tickerFlux.emitValue(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createZonedDateTime(1)).last(new BigDecimal("0.2")).build());
         await().untilAsserted(() -> assertEquals(1, strategy.getLastTickers().size()));
 
         // =============================================================================================================
@@ -352,7 +352,7 @@ public class PositionTest extends BaseTest {
     @DisplayName("Check saved data during position lifecycle")
     public void checkSavedDataDuringPositionLifecycle() {
         // First ticker emitted for dry mode - MANDATORY.
-        tickerFlux.emitValue(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createOffsetDateTime(1)).last(new BigDecimal("0.01")).build());
+        tickerFlux.emitValue(TickerDTO.builder().currencyPair(ETH_BTC).timestamp(createZonedDateTime(1)).last(new BigDecimal("0.01")).build());
         await().untilAsserted(() -> assertEquals(1, strategy.getTickersUpdatesReceived().size()));
 
         // =============================================================================================================
@@ -393,8 +393,8 @@ public class PositionTest extends BaseTest {
         assertNull(p.getClosingOrder());
         assertNull(p.getLowestGainPrice());
         assertNull(p.getHighestGainPrice());
-        OffsetDateTime createdOn = p.getCreatedOn();
-        OffsetDateTime updatedON = p.getUpdatedOn();
+        ZonedDateTime createdOn = p.getCreatedOn();
+        ZonedDateTime updatedON = p.getUpdatedOn();
         assertNotNull(createdOn);
         assertNotNull(updatedON);
 
@@ -484,7 +484,7 @@ public class PositionTest extends BaseTest {
                 .status(NEW)
                 .cumulativeAmount(new CurrencyAmountDTO("1.00002", ETH_BTC.getBaseCurrency()))
                 .userReference("MY_REF_3")
-                .timestamp(createOffsetDateTime("01-01-2020"))
+                .timestamp(createZonedDateTime("01-01-2020"))
                 .build();
         pDTO.closePositionWithOrder(order2);
         positionFlux.emitValue(pDTO);

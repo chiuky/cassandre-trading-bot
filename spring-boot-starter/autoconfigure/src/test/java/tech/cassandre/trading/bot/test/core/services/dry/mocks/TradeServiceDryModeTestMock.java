@@ -11,7 +11,7 @@ import tech.cassandre.trading.bot.dto.market.TickerDTO;
 import tech.cassandre.trading.bot.service.MarketService;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.ZonedDateTime;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -43,7 +43,7 @@ public class TradeServiceDryModeTestMock {
         // Replies for ETH / BTC.
         given(marketService.getTicker(ETH_BTC))
                 .willReturn(Optional.of(TickerDTO.builder().currencyPair(ETH_BTC)
-                        .timestamp(OffsetDateTime.now())
+                        .timestamp(ZonedDateTime.now())
                         .last(new BigDecimal("0.2"))
                         .build())
                 );

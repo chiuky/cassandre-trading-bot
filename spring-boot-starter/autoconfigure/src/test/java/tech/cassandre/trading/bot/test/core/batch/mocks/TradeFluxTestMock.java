@@ -73,7 +73,7 @@ public class TradeFluxTestMock extends BaseMock {
                 new BigDecimal("1.100001"),                             // Original amount.
                 XCHANGE_ETH_BTC,                                            // Instrument.
                 new BigDecimal("2.200002"),                             // Price.
-                Date.from(createOffsetDateTime(1).toInstant()),          // Date.
+                Date.from(createZonedDateTime(1).toInstant()),          // Date.
                 "TRADE_0000001",                                            // Trade id.
                 "ORDER_0000001",                                            // Order id.
                 new BigDecimal("3.300003"),                             // Fee.
@@ -86,7 +86,7 @@ public class TradeFluxTestMock extends BaseMock {
                 new BigDecimal("1.100001"),                             // Original amount.
                 XCHANGE_ETH_BTC,                                            // Instrument.
                 new BigDecimal("2.200002"),                             // Price.
-                Date.from(createOffsetDateTime("01-09-2020").toInstant()),   // Date.
+                Date.from(createZonedDateTime("01-09-2020").toInstant()),   // Date.
                 "TRADE_0000002",                                            // Trade id.
                 "ORDER_0000001",                                            // Order id.
                 new BigDecimal("3.300003"),                             // Fee.
@@ -113,7 +113,7 @@ public class TradeFluxTestMock extends BaseMock {
                 new BigDecimal("1.100001"),                             // Original amount.
                 XCHANGE_ETH_BTC,                                            // Instrument.
                 new BigDecimal("2.200002"),                             // Price.
-                Date.from(createOffsetDateTime(1).toInstant()),          // Date.
+                Date.from(createZonedDateTime(1).toInstant()),          // Date.
                 "TRADE_0000001",                                            // Trade id.
                 "ORDER_0000001",                                            // Order id.
                 new BigDecimal("3.300003"),                             // Fee.
@@ -126,7 +126,7 @@ public class TradeFluxTestMock extends BaseMock {
                 new BigDecimal("1.100001"),                             // Original amount.
                 XCHANGE_ETH_BTC,                                            // Instrument.
                 new BigDecimal("2.200002"),                             // Price.
-                Date.from(createOffsetDateTime("01-09-2020").toInstant()),   // Date.
+                Date.from(createZonedDateTime("01-09-2020").toInstant()),   // Date.
                 "TRADE_0000002",                                            // Trade id.
                 "ORDER_0000001",                                            // Order id.
                 new BigDecimal("3.300003"),                             // Fee.
@@ -139,7 +139,7 @@ public class TradeFluxTestMock extends BaseMock {
                 new BigDecimal("1.100001"),                             // Original amount.
                 XCHANGE_ETH_USDT,                                           // Instrument.
                 new BigDecimal("2.200002"),                             // Price.
-                Date.from(createOffsetDateTime("01-09-2020").toInstant()),   // Date.
+                Date.from(createZonedDateTime("01-09-2020").toInstant()),   // Date.
                 "TRADE_0000003",                                            // Trade id.
                 "ORDER_0000002",                                            // Order id.
                 new BigDecimal("3.300003"),                             // Fee.
@@ -152,7 +152,7 @@ public class TradeFluxTestMock extends BaseMock {
                 new BigDecimal("1"),                                    // Original amount.
                 XCHANGE_ETH_BTC,                                            // Instrument.
                 new BigDecimal("2.200002"),                             // Price.
-                Date.from(createOffsetDateTime("01-09-2020").toInstant()),   // Date.
+                Date.from(createZonedDateTime("01-09-2020").toInstant()),   // Date.
                 "TRADE_0000004",                                            // Trade id.
                 "ORDER_0000001",                                            // Order id.
                 new BigDecimal("3.300003"),                             // Fee.
@@ -165,7 +165,7 @@ public class TradeFluxTestMock extends BaseMock {
                 new BigDecimal("1"),                                    // Original amount.
                 XCHANGE_ETH_BTC,                                            // Instrument.
                 new BigDecimal("2.200002"),                             // Price.
-                Date.from(createOffsetDateTime("01-09-2020").toInstant()),   // Date.
+                Date.from(createZonedDateTime("01-09-2020").toInstant()),   // Date.
                 "TRADE_0000005",                                            // Trade id.
                 "ORDER_0000001",                                            // Order id.
                 new BigDecimal("3.300003"),                             // Fee.
@@ -196,7 +196,7 @@ public class TradeFluxTestMock extends BaseMock {
                 new BigDecimal("1.100001"),                             // Original amount.
                 XCHANGE_ETH_USDT,                                           // Instrument.
                 new BigDecimal("2.200002"),                             // Price.
-                Date.from(createOffsetDateTime("01-08-2018").toInstant()),   // Date.
+                Date.from(createZonedDateTime("01-08-2018").toInstant()),   // Date.
                 "TRADE_0000006",                                            // Trade id.
                 "ORDER_0000001",                                            // Order id.
                 new BigDecimal("3.300003"),                             // Fee.
@@ -209,7 +209,7 @@ public class TradeFluxTestMock extends BaseMock {
                 new BigDecimal("1.100001"),                             // Original amount.
                 XCHANGE_ETH_BTC,                                            // Instrument.
                 new BigDecimal("2.200002"),                             // Price.
-                Date.from(createOffsetDateTime("01-09-2020").toInstant()),   // Date.
+                Date.from(createZonedDateTime("01-09-2020").toInstant()),   // Date.
                 "TRADE_0000002",                                            // Trade id.
                 "ORDER_0000001",                                            // Order id.
                 new BigDecimal("3.300003"),                             // Fee.
@@ -222,7 +222,7 @@ public class TradeFluxTestMock extends BaseMock {
                 new BigDecimal("1.110001"),                             // Original amount.
                 XCHANGE_ETH_USDT,                                           // Instrument.
                 new BigDecimal("2.220002"),                             // Price.
-                Date.from(createOffsetDateTime("01-09-2021").toInstant()),   // Date.
+                Date.from(createZonedDateTime("01-09-2021").toInstant()),   // Date.
                 "TRADE_0000003",                                            // Trade id.
                 "ORDER_0000002",                                            // Order id.
                 new BigDecimal("3.330003"),                             // Fee.
@@ -235,7 +235,7 @@ public class TradeFluxTestMock extends BaseMock {
                 new BigDecimal("1.100001"),                             // Original amount.
                 XCHANGE_ETH_BTC,                                            // Instrument.
                 new BigDecimal("2.200002"),                             // Price.
-                Date.from(createOffsetDateTime("02-09-2020").toInstant()),   // Date.
+                Date.from(createZonedDateTime("02-09-2020").toInstant()),   // Date.
                 "TRADE_0000008",                                            // Trade id.
                 "ORDER_0000001",                                            // Order id.
                 new BigDecimal("3.300003"),                             // Fee.

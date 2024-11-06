@@ -55,7 +55,7 @@ public class TradeRepositoryTest extends BaseTest {
         assertEquals(0, trade1.getFee().getValue().compareTo(new BigDecimal("1")));
         assertEquals("USDT", trade1.getFee().getCurrency());
         assertEquals("Trade 01", trade1.getUserReference());
-        assertTrue(createOffsetDateTime("01-08-2020").isEqual(trade1.getTimestamp()));
+        assertTrue(createZonedDateTime("01-08-2020").isEqual(trade1.getTimestamp()));
 
         // Retrieving order 1 with findByOrderId().
         Optional<Trade> trade1Bis = tradeRepository.findByTradeId("BACKUP_TRADE_01");
@@ -76,7 +76,7 @@ public class TradeRepositoryTest extends BaseTest {
         assertEquals(0, trade2.getFee().getValue().compareTo(new BigDecimal("2")));
         assertEquals("USDT", trade2.getFee().getCurrency());
         assertEquals("Trade 02", trade2.getUserReference());
-        assertTrue(createOffsetDateTime("02-08-2020").isEqual(trade2.getTimestamp()));
+        assertTrue(createZonedDateTime("02-08-2020").isEqual(trade2.getTimestamp()));
 
         // Retrieving order 2 with findByOrderId().
         Optional<Trade> trade2Bis = tradeRepository.findByTradeId("BACKUP_TRADE_02");
@@ -97,7 +97,7 @@ public class TradeRepositoryTest extends BaseTest {
         assertEquals(0, trade3.getFee().getValue().compareTo(new BigDecimal("3")));
         assertEquals("USDT", trade3.getFee().getCurrency());
         assertEquals("Trade 03", trade3.getUserReference());
-        assertTrue(createOffsetDateTime("03-08-2020").isEqual(trade3.getTimestamp()));
+        assertTrue(createZonedDateTime("03-08-2020").isEqual(trade3.getTimestamp()));
 
         // Retrieving order 3 with findByOrderId().
         Optional<Trade> trade3Bis = tradeRepository.findByTradeId("BACKUP_TRADE_03");
@@ -118,7 +118,7 @@ public class TradeRepositoryTest extends BaseTest {
         assertEquals(0, trade4.getFee().getValue().compareTo(new BigDecimal("4")));
         assertEquals("USDT", trade4.getFee().getCurrency());
         assertEquals("Trade 04", trade4.getUserReference());
-        assertTrue(createOffsetDateTime("04-08-2020").isEqual(trade4.getTimestamp()));
+        assertTrue(createZonedDateTime("04-08-2020").isEqual(trade4.getTimestamp()));
 
         // Retrieving order 4 with findByOrderId().
         Optional<Trade> trade4Bis = tradeRepository.findByTradeId("BACKUP_TRADE_04");
@@ -139,7 +139,7 @@ public class TradeRepositoryTest extends BaseTest {
         assertEquals(0, trade5.getFee().getValue().compareTo(new BigDecimal("5")));
         assertEquals("USD", trade5.getFee().getCurrency());
         assertEquals("Trade 05", trade5.getUserReference());
-        assertTrue(createOffsetDateTime("05-08-2020").isEqual(trade5.getTimestamp()));
+        assertTrue(createZonedDateTime("05-08-2020").isEqual(trade5.getTimestamp()));
 
         // Retrieving order 5 with findByOrderId().
         Optional<Trade> trade5Bis = tradeRepository.findByTradeId("BACKUP_TRADE_05");

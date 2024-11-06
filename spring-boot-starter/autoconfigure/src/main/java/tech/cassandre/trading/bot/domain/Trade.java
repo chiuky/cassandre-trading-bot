@@ -23,7 +23,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import java.time.OffsetDateTime;
+import java.time.ZonedDateTime;
 
 import static jakarta.persistence.EnumType.STRING;
 import static jakarta.persistence.GenerationType.IDENTITY;
@@ -93,7 +93,7 @@ public class Trade extends BaseDomain {
 
     /** The timestamp of the trade. */
     @Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP WITH TIME ZONE")
-    private OffsetDateTime timestamp;
+    private ZonedDateTime timestamp;
 
     @Override
     @ExcludeFromCoverageGeneratedReport
