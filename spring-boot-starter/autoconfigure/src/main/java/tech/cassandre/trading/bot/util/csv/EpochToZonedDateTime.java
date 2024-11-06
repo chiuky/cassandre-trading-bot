@@ -9,7 +9,7 @@ import java.time.ZonedDateTime;
 import java.util.Date;
 
 /**
- * Allows to transform an epoch time to a Offset date time.
+ * Allows to transform an epoch time to a Zoned date time.
  */
 public class EpochToZonedDateTime extends AbstractBeanField<ImportedTicker, ImportedTicker> {
 
