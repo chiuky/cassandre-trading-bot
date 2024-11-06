@@ -122,7 +122,7 @@ public class BaseTest extends Base {
      * @param date date with format dd-MM-yyyy
      * @return ZonedDateTime
      */
-     protected static ZonedDateTime createZonedDateTime(final String date) {
+    protected static ZonedDateTime createZonedDateTime(final String date) {
         return ZonedDateTime.parse(date + " 00:00:00 UTC", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss VV"));
     }
 
