@@ -1,0 +1,7 @@
+tech.cassandre.trading.bot.configuration.DatabaseAutoConfiguration
+tech.cassandre.trading.bot.configuration.ExchangeAutoConfiguration
+tech.cassandre.trading.bot.configuration.ScheduleAutoConfiguration
+tech.cassandre.trading.bot.configuration.StrategiesAutoConfiguration
+tech.cassandre.trading.bot.util.dry.ExchangeServiceDryModeAOP
+tech.cassandre.trading.bot.util.dry.UserServiceDryModeAOP
+tech.cassandre.trading.bot.util.dry.TradeServiceDryModeAOP

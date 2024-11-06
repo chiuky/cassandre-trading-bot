@@ -26,7 +26,7 @@ public class CoinbaseTest extends BaseTest {
             application.run();
             fail("Exception not raised");
         } catch (Exception e) {
-            assertTrue(e.getMessage().contains("(HTTP status code: 404)"));
+            assertTrue(e.getCause().getMessage().contains("(HTTP status code: 404)"));
         }
     }
 

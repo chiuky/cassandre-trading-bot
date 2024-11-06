@@ -13,26 +13,26 @@ import tech.cassandre.trading.bot.util.java.EqualsBuilder;
 import tech.cassandre.trading.bot.util.jpa.CurrencyAmount;
 import tech.cassandre.trading.bot.util.test.ExcludeFromCoverageGeneratedReport;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
-import javax.persistence.Table;
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.AttributeOverrides;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OrderBy;
+import jakarta.persistence.Table;
 import java.time.ZonedDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import static javax.persistence.EnumType.STRING;
-import static javax.persistence.FetchType.EAGER;
-import static javax.persistence.GenerationType.IDENTITY;
+import static jakarta.persistence.EnumType.STRING;
+import static jakarta.persistence.FetchType.EAGER;
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 /**
  * Order (map "ORDERS" table).
@@ -123,7 +123,7 @@ public class Order extends BaseDomain {
     private String userReference;
 
     /** The timestamp of the order. */
-    @Column(name = "TIMESTAMP")
+    @Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP WITH TIME ZONE")
     private ZonedDateTime timestamp;
 
     /** All trades related to order. */

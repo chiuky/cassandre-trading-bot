@@ -8,9 +8,9 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Column;
-import javax.persistence.EntityListeners;
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.Column;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.MappedSuperclass;
 import java.time.ZonedDateTime;
 
 /**
@@ -26,12 +26,12 @@ public abstract class BaseDomain {
 
     /** Data created on. */
     @CreatedDate
-    @Column(name = "CREATED_ON", nullable = false, updatable = false)
+    @Column(name = "CREATED_ON", nullable = false, updatable = false, columnDefinition = "TIMESTAMP WITH TIME ZONE")
     private ZonedDateTime createdOn;
 
     /** Data updated on. */
     @LastModifiedDate
-    @Column(name = "UPDATED_ON", nullable = false, insertable = false)
+    @Column(name = "UPDATED_ON", nullable = false, insertable = false, columnDefinition = "TIMESTAMP WITH TIME ZONE")
     private ZonedDateTime updatedOn;
 
 }
